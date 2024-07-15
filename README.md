@@ -89,3 +89,44 @@ https://unocss.dev/play/
 ```
 pnpm i pinia pinia-plugin-persistedstate
 ```
+```js
+# src/store/index.js
+
+import createPinia from 'pinia';
+import { useUserStore } from './user/index.js'
+
+export default {
+    install(app) {
+        app.use(createPinia())
+        app.config.globalProperties.$store = {
+            user : useUserStore()
+        }
+    }
+}
+
+# src/main.js
+
+import store from './store/index'
+
+app.use(store)
+
+```
+# 5、集成uni-network (https://www.npmjs.com/package/@uni-helper/uni-network)
+```
+pnpm add @uni-helper/uni-network
+pnpm add query-string
+pnpm add @uni-helper/uni-env
+@uni-helper/uni-env
+
+# src/utils/request/index.js
+
+
+```
+
+# 6、集成uniapp-router-next
+```
+pnpm add uniapp-router-next
+pnpm add unplugin-uni-router
+pnpm add lodash-es
+
+```
